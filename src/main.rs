@@ -36,9 +36,7 @@ fn main() {
     .unwrap();
 
     let mut out_file = std::fs::File::create("test.priv").unwrap();
-    cert.as_tsk() /* .armored() */
-        .serialize(&mut out_file)
-        .unwrap();
+    cert.as_tsk().armored().serialize(&mut out_file).unwrap();
 }
 
 fn read_mnemonic(buf: &mut String, stdin: &mut std::io::StdinLock, out: &mut [u8; 32]) {
